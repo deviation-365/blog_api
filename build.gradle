@@ -24,10 +24,19 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    compile group: 'com.zaxxer', name: 'HikariCP', version: '3.2.0'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.13'
+
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile group: 'org.hibernate', name: 'hibernate-core'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager'
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
     compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
+
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
