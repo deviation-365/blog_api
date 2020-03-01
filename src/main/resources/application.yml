@@ -1,0 +1,39 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 8081
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+---
+
+spring.profiles: local
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3307/blog?useUnicode=yes&useSSL=false
+    username: deviation-365
+    password: prod1005!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      poolname: hikari-cp
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-test-query: SELECT 1
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    generate-ddl: true
+
