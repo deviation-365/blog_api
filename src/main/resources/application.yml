@@ -1,7 +1,3 @@
-api:
-  path:
-    default: /v1/api
-
 server:
   tomcat:
     uri-encoding: UTF-8
@@ -10,6 +6,11 @@ server:
 spring:
   main:
     allow-bean-definition-overriding: true
+
+jwt:
+  token:
+    secret: deviation-365
+    length: 1
 
 ---
 
