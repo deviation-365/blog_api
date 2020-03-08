@@ -73,13 +73,9 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
 
             if (token != null && jwtTokenProvider.validateJwtToken(token)) {
 
-                List<GrantedAuthority> authorities = new ArrayList<>();
-                authorities.add(new SimpleGrantedAuthority(jwtTokenProvider.getBodyValue(token, "auth")));
-
                 UserTokenDto userInfo = UserTokenDto.builder()
                         .id(Long.valueOf(jwtTokenProvider.getBodyValue(token, "id")))
                         .email(jwtTokenProvider.getBodyValue(token, "email"))
-                        .authorities(authorities)
                         .build();
 
                 log.debug("[userInfo]" + userInfo.toString());
