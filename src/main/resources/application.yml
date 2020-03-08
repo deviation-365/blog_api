@@ -3,6 +3,10 @@ server:
     uri-encoding: UTF-8
   port: 8081
 
+api:
+  path:
+    default: /v1/api
+
 spring:
   main:
     allow-bean-definition-overriding: true
