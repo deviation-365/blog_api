@@ -1,3 +1,7 @@
+api:
+  path:
+    default: /v1/api
+
 server:
   tomcat:
     uri-encoding: UTF-8

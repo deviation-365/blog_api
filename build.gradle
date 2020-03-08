@@ -32,9 +32,12 @@ dependencies {
     compile group: 'org.hibernate', name: 'hibernate-entitymanager'
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'org.modelmapper:modelmapper:2.3.6'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
