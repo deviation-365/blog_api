@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Setter
 @ToString
 @Entity
-public class Comment extends BaseTimeEntity {
+public class Comments extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +20,8 @@ public class Comment extends BaseTimeEntity {
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Post post;
+    private Posts posts;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private User writer;
+    private Users writer;
 }

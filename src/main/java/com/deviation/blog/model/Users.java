@@ -10,7 +10,7 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
-public class User extends BaseTimeEntity {
+public class Users extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,11 +26,11 @@ public class User extends BaseTimeEntity {
     private String password;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    private List<Post> posts = new ArrayList<>();
+    private List<Posts> posts = new ArrayList<>();
 
-    public void addPost(Post post) {
-        post.setUser(this);
-        this.posts.add(post);
+    public void addPost(Posts posts) {
+        posts.setUsers(this);
+        this.posts.add(posts);
     }
 
 }

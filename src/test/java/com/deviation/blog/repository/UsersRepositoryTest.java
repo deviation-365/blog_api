@@ -1,6 +1,6 @@
 package com.deviation.blog.repository;
 
-import com.deviation.blog.model.User;
+import com.deviation.blog.model.Users;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,23 +15,23 @@ import static org.junit.Assert.assertThat;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @ActiveProfiles(value = "local")
-public class UserRepositoryTest {
+public class UsersRepositoryTest {
 
     @Autowired
-    private UserRepository userRepository;
+    private UsersRepository usersRepository;
 
     @Test
     @Rollback(value = false)
     public void createUser() {
-        User user = new User();
+        Users users = new Users();
 
-        user.setName("염승민");
-        user.setPassword("1234");
-        user.setEmail("tmdals3021@gmail.com");
-        userRepository.save(user);
+        users.setName("염승민");
+        users.setPassword("1234");
+        users.setEmail("tmdals3021@gmail.com");
+        usersRepository.save(users);
 
-        assertThat(user.getId(), is(user.getId()));
-        assertThat(user.getName(), is("염승민"));
-        assertThat(user.getPassword(), is("1234"));
+        assertThat(users.getId(), is(users.getId()));
+        assertThat(users.getName(), is("염승민"));
+        assertThat(users.getPassword(), is("1234"));
     }
 }

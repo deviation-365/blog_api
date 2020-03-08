@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
-public class Post extends BaseTimeEntity {
+public class Posts extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,13 +25,13 @@ public class Post extends BaseTimeEntity {
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST})
-    private User user;
+    private Users users;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    private List<Comment> comments = new ArrayList<>();
+    private List<Comments> comments = new ArrayList<>();
 
-    public void addComment(Comment comment) {
-        comment.setPost(this);
-        this.comments.add(comment);
+    public void addComment(Comments comments) {
+        comments.setPosts(this);
+        this.comments.add(comments);
     }
 }
