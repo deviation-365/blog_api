@@ -13,7 +13,7 @@ spring.profiles: local
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3307/blog?useUnicode=yes&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://localhost:3307/blog
     username: deviation-365
     password: prod1005!
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -24,3 +24,20 @@ spring:
       maximum-pool-size: 10
       minimum-idle: 5
       connection-test-query: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    properties:
+      hibernate:
+        genarete-ddl: true
+        show_sql: true
+        format_sql: true
+
+  main:
+    allow-bean-definition-overriding: true
+
+logging:
+  level:
+    org:
+      hibernate.type: trace
