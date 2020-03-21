@@ -11,8 +11,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Getter @Setter
 @MappedSuperclass
 @EntityListeners(value = AuditingEntityListener.class)
 public abstract class BaseTimeEntity {
@@ -24,4 +23,5 @@ public abstract class BaseTimeEntity {
     @LastModifiedDate
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
 }

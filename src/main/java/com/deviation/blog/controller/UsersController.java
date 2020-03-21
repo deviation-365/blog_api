@@ -29,7 +29,8 @@ public class UsersController {
                                                                                    @RequestParam Integer size) {
 
         Pageable pageable = PageRequest.of(page, size);
-        Page<UsersDto.ResponseDto> responseDto = usersService.getUserList(pageable).map(users -> modelMapper.map(users, UsersDto.ResponseDto.class));
+        Page<UsersDto.ResponseDto> responseDto = usersService.getUserList(pageable)
+                .map(users -> modelMapper.map(users, UsersDto.ResponseDto.class));
 
         ApiResponseDto<Page<UsersDto.ResponseDto>> apiResponseDto = new ApiResponseDto<>();
         apiResponseDto.setSuccessStatus(responseDto);

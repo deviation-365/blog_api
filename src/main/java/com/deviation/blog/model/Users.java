@@ -25,7 +25,7 @@ public class Users extends BaseTimeEntity {
     @Column
     private String password;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToMany(mappedBy = "users", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Posts> posts = new ArrayList<>();
 
     public void addPost(Posts posts) {
