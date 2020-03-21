@@ -11,13 +11,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
-import java.nio.file.attribute.UserPrincipal;
 
 @RequiredArgsConstructor
 @RestController
@@ -40,10 +38,10 @@ public class PostController {
 
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<ApiResponseDto<PostsDto.ResponseDetailDto>> getPostDetail(@PathVariable Long id) {
+    @GetMapping("/{postId}")
+    public ResponseEntity<ApiResponseDto<PostsDto.ResponseDetailDto>> getPostDetail(@PathVariable Long postId) {
 
-        Posts postDetail = postsService.getPostDetail(id);
+        Posts postDetail = postsService.getPostDetail(postId);
 
         PostsDto.ResponseDetailDto dto = modelMapper.map(postDetail, PostsDto.ResponseDetailDto.class);
 
@@ -63,7 +61,7 @@ public class PostController {
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
-                .path("/{id}")
+                .path("/{postId}")
                 .buildAndExpand(savedPost.getId())
                 .toUri();
 

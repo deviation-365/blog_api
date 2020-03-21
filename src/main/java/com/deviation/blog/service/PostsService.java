@@ -20,15 +20,13 @@ public class PostsService {
         return postsRepository.findAll(pageable);
     }
 
-    public Posts getPostDetail(Long id) {
+    public Posts getPostDetail(Long postId) {
 
-        return postsRepository.findById(id)
+        return postsRepository.findById(postId)
                 .orElseThrow(EntityNotFoundException::new);
-
     }
 
     public Posts registerPost(Posts post) {
-
         return postsRepository.save(post);
     }
 }
