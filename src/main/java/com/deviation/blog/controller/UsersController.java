@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(value="${api.path.default}/users")
-public class UserController {
+public class UsersController {
 
     private final ModelMapper modelMapper;
 
